@@ -1,14 +1,21 @@
-# Mini Cloud Storage Backend
+<div align="center">
+  <h1>☁️ Mini Cloud Storage</h1>
+  <p>A beautiful, fully-functional backend & frontend system for a cloud file storage service. Safely upload, track, and manage your cloud quota.</p>
 
-A backend system for a cloud file storage service. It allows users to upload file metadata, tracks storage quotas, and supports physical deduplication.
+  <!-- IMPORTANT: Replace the image path below with your actual screenshot! -->
+  <img src="assets/dashboard.png" alt="CloudSpace Dashboard UI" width="800" />
+</div>
 
-## Features
-- **User Quota System:** 500 MB fixed limit per user.
-- **Strict Concurrency Control:** Enforced via a PostgreSQL `CHECK` constraint to guarantee no storage overages during simultaneous uploads.
-- **Physical Deduplication:** Maps identical file hashes to a single `PhysicalFile` record while maintaining separate `UserFile` access records for users.
-- **Prisma ORM:** Clean database modeling and interactions.
+<br />
 
-## Prerequisites
+## ✨ Features
+- 🎨 **Premium UI Dashboard:** A fully responsive, glassmorphism dark-mode frontend to manage your files visually!
+- 🗄️ **User Quota System:** 500 MB fixed limit per user.
+- 🔒 **Strict Concurrency Control:** Enforced via a PostgreSQL `CHECK` constraint to guarantee no storage overages during simultaneous uploads.
+- 🧬 **Physical Deduplication:** Maps identical file hashes to a single `PhysicalFile` record while maintaining separate `UserFile` access records for users.
+- ⚡ **Prisma ORM:** Clean database modeling and interactions.
+
+## 🛠️ Prerequisites
 - **Node.js**: v18+
 - **Docker & Docker Compose**: For running PostgreSQL locally.
 

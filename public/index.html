@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Cloud Storage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="ri-cloud-line"></i>
+                <h2>CloudSpace</h2>
+            </div>
+            <nav class="nav-menu">
+                <button class="nav-btn active"><i class="ri-folder-line"></i> My Files</button>
+                <div class="storage-widget">
+                    <p class="storage-title">Storage Usage</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="storage-progress"></div>
+                    </div>
+                    <p class="storage-text"><span id="storage-used">0 MB</span> / 500 MB</p>
+                </div>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar">
+                    <i class="ri-user-line"></i>
+                </div>
+                <div class="user-info">
+                    <p id="user-name">User 1</p>
+                    <span>Premium Plan</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="ri-search-line"></i>
+                    <input type="text" placeholder="Search your files...">
+                </div>
+                <button class="btn-primary" id="upload-btn">
+                    <i class="ri-upload-cloud-line"></i> Upload File
+                </button>
+            </header>
+
+            <section class="files-view">
+                <div class="view-header">
+                    <h2>Recent Files</h2>
+                    <p id="total-files-count">0 files</p>
+                </div>
+
+                <div class="files-grid" id="files-grid">
+                    <!-- Files will be dynamically injected here -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal-overlay" id="upload-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Upload New File</h3>
+                <button class="close-btn" id="close-modal"><i class="ri-close-line"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" id="drop-zone">
+                    <i class="ri-file-upload-line upload-icon"></i>
+                    <p>Click or drag file to this area to upload</p>
+                    <input type="file" id="file-input" style="display: none;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id               Int        @id @default(autoincrement())
+  userName         String
+  totalStorageUsed Int        @default(0) // Tracks storage used in bytes. We will strictly enforce <= 524288000 via SQL constraint
+  createdAt        DateTime   @default(now())
+
+  files            UserFile[]
+
+  @@map("users")
+}
+
+model PhysicalFile {
+  id        Int        @id @default(autoincrement())
+  hash      String     @unique
+  size      Int
+  createdAt DateTime   @default(now())
+
+  userFiles UserFile[]
+
+  @@map("physical_files")
+}
+
+model UserFile {
+  id             Int          @id @default(autoincrement())
+  userId         Int
+  physicalFileId Int
+  fileName       String
+  isActive       Boolean      @default(true)
+  uploadTime     DateTime     @default(now())
+
+  user           User         @relation(fields: [userId], references: [id])
+  physicalFile   PhysicalFile @relation(fields: [physicalFileId], references: [id])
+
+  @@map("user_files")
+}

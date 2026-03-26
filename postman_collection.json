@@ -1,0 +1,70 @@
+{
+	"info": {
+		"name": "Mini Cloud Storage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"document1.pdf\",\n    \"size\": 1048576,\n    \"hash\": \"abc123hash\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1/files",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "3000",
+					"path": [ "users", "1", "files" ]
+				}
+			}
+		},
+		{
+			"name": "Get Storage Summary",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:3000/users/1/storage-summary",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "3000",
+					"path": [ "users", "1", "storage-summary" ]
+				}
+			}
+		},
+		{
+			"name": "List User Files",
+			"request": {
+				"method": "GET",
+				"url": {
+					"raw": "http://localhost:3000/users/1/files",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "3000",
+					"path": [ "users", "1", "files" ]
+				}
+			}
+		},
+		{
+			"name": "Delete File",
+			"request": {
+				"method": "DELETE",
+				"url": {
+					"raw": "http://localhost:3000/users/1/files/1",
+					"protocol": "http",
+					"host": [ "localhost" ],
+					"port": "3000",
+					"path": [ "users", "1", "files", "1" ]
+				}
+			}
+		}
+	]
+}
